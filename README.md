@@ -55,6 +55,7 @@ https://designable-vue.vercel.app/
 ## Contributors
 
 This project exists thanks to all the people who contribute.
+
 <a href="https://github.com/formilyjs/designable-vue/graphs/contributors"><img src="https://contrib.rocks/image?repo=formilyjs/designable-vue" /></a>
 
 ## LICENSE
