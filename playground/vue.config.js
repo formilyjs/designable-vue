@@ -7,7 +7,7 @@ module.exports = defineConfig({
       css: { url: { filter: (url) => !url.startsWith('/') } },
     },
   },
-  publicPath: '/element-plus',
+  publicPath: '/',
   transpileDependencies: true,
   chainWebpack: (config) => {
     config.plugins.delete('fork-ts-checker')
