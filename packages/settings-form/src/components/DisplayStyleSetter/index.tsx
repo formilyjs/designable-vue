@@ -1,8 +1,15 @@
 import { useField, Field, FragmentComponent, VueComponent } from '@formily/vue'
 import { observer } from '@formily/reactive-vue'
 import { FormItem } from '@formily/element-plus'
-import { ElRadioButton as RadioButton, ElRadioGroup as RadioGroup } from 'element-plus'
-import { usePrefix, IconWidget, useStyle } from '@formily/element-plus-prototypes'
+import {
+  ElRadioButton as RadioButton,
+  ElRadioGroup as RadioGroup,
+} from 'element-plus'
+import {
+  usePrefix,
+  IconWidget,
+  useStyle,
+} from '@formily/element-plus-prototypes'
 import { FlexStyleSetter } from '../FlexStyleSetter'
 import cls from 'classnames'
 import './styles.less'
@@ -39,9 +46,9 @@ export const DisplayStyleSetter = observer(
                 class={prefix + '-radio'}
                 modelValue={props.value}
                 {...{
-                  "onUpdate:modelValue": (e) => {
+                  'onUpdate:modelValue': (e) => {
                     emit('change', e)
-                  }
+                  },
                 }}
               >
                 <RadioButton label="block">

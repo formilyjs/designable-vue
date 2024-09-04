@@ -36,8 +36,8 @@ const FoldItemComponent = observer(
             >
               <FormItem.BaseItem
                 {...attrs}
-                label={
-                  () => <span
+                label={() => (
+                  <span
                     class={cls(prefixRef.value + '-title', {
                       expand: expand.value,
                     })}
@@ -45,7 +45,7 @@ const FoldItemComponent = observer(
                     {slots.extra && <IconWidget infer="Expand" size={10} />}
                     {props.label}
                   </span>
-                }
+                )}
               >
                 <div
                   style={{ width: '100%' }}

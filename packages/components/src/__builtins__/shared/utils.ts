@@ -1,5 +1,5 @@
-import { isValidElementNode } from "element-plus/es/utils/vue/vnode"
-import { isVNode } from "vue"
+import { isValidElementNode } from 'element-plus/es/utils/vue/vnode'
+import { isVNode } from 'vue'
 
 export const isValidElement = isValidElementNode
 // (element) {

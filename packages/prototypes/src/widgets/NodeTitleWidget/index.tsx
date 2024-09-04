@@ -6,7 +6,7 @@ import { PropType } from 'vue'
 const NodeTitleWidgetComponent = defineComponent({
   name: 'DnNodeTitleWidget',
   props: {
-    node: Object as PropType<TreeNode>
+    node: Object as PropType<TreeNode>,
   },
   setup(props) {
     const takeNode = () => {
@@ -19,9 +19,7 @@ const NodeTitleWidgetComponent = defineComponent({
 
     return () => {
       const node = takeNode()
-      return (
-        <>{node.getMessage('title') || node.componentName}</>
-      )
+      return <>{node.getMessage('title') || node.componentName}</>
     }
   },
 })

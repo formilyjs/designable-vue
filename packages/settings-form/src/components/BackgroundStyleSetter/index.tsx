@@ -18,81 +18,84 @@ export const BackgroundStyleSetter = defineComponent({
     return () => {
       const field = unref(fieldRef)
       return (
-        <FoldItem class={cls(prefixRef.value)} label={field.title} v-slots={{
-          base: () => {
-            return (
-              <Field
-                name="backgroundColor"
-                basePath={field.address.parent()}
-                component={[ColorInput]}
-              />
-            )
-          },
-          extra: () => {
-            return (
-              <InputItems>
-                <InputItems.Item icon="Image">
-                  <Field
-                    name="backgroundImage"
-                    basePath={field.address.parent()}
-                    component={[BackgroundImageInput]}
-                  />
-                </InputItems.Item>
-                <InputItems.Item icon="ImageSize" width="50%">
-                  <Field
-                    name="backgroundSize"
-                    basePath={field.address.parent()}
-                    component={[BackgroundSizeInput]}
-                  />
-                </InputItems.Item>
-                <InputItems.Item icon="Repeat" width="50%">
-                  <Field
-                    name="backgroundRepeat"
-                    basePath={field.address.parent()}
-                    component={[
-                      Select,
-                      { style: { width: '100%' }, placeholder: 'Repeat' },
-                    ]}
-                    dataSource={[
-                      {
-                        label: 'No Repeat',
-                        value: 'no-repeat',
-                      },
-                      {
-                        label: 'Repeat',
-                        value: 'repeat',
-                      },
-                      {
-                        label: 'Repeat X',
-                        value: 'repeat-x',
-                      },
-                      {
-                        label: 'Repeat Y',
-                        value: 'repeat-y',
-                      },
-                      {
-                        label: 'Space',
-                        value: 'space',
-                      },
-                      {
-                        label: 'Round',
-                        value: 'round',
-                      },
-                    ]}
-                  />
-                </InputItems.Item>
-                <InputItems.Item icon="Position">
-                  <Field
-                    name="backgroundPosition"
-                    basePath={field.address.parent()}
-                    component={[Input, { placeholder: 'center center' }]}
-                  />
-                </InputItems.Item>
-              </InputItems>
-            )
-          }
-        }}>
-        </FoldItem>
+        <FoldItem
+          class={cls(prefixRef.value)}
+          label={field.title}
+          v-slots={{
+            base: () => {
+              return (
+                <Field
+                  name="backgroundColor"
+                  basePath={field.address.parent()}
+                  component={[ColorInput]}
+                />
+              )
+            },
+            extra: () => {
+              return (
+                <InputItems>
+                  <InputItems.Item icon="Image">
+                    <Field
+                      name="backgroundImage"
+                      basePath={field.address.parent()}
+                      component={[BackgroundImageInput]}
+                    />
+                  </InputItems.Item>
+                  <InputItems.Item icon="ImageSize" width="50%">
+                    <Field
+                      name="backgroundSize"
+                      basePath={field.address.parent()}
+                      component={[BackgroundSizeInput]}
+                    />
+                  </InputItems.Item>
+                  <InputItems.Item icon="Repeat" width="50%">
+                    <Field
+                      name="backgroundRepeat"
+                      basePath={field.address.parent()}
+                      component={[
+                        Select,
+                        { style: { width: '100%' }, placeholder: 'Repeat' },
+                      ]}
+                      dataSource={[
+                        {
+                          label: 'No Repeat',
+                          value: 'no-repeat',
+                        },
+                        {
+                          label: 'Repeat',
+                          value: 'repeat',
+                        },
+                        {
+                          label: 'Repeat X',
+                          value: 'repeat-x',
+                        },
+                        {
+                          label: 'Repeat Y',
+                          value: 'repeat-y',
+                        },
+                        {
+                          label: 'Space',
+                          value: 'space',
+                        },
+                        {
+                          label: 'Round',
+                          value: 'round',
+                        },
+                      ]}
+                    />
+                  </InputItems.Item>
+                  <InputItems.Item icon="Position">
+                    <Field
+                      name="backgroundPosition"
+                      basePath={field.address.parent()}
+                      component={[Input, { placeholder: 'center center' }]}
+                    />
+                  </InputItems.Item>
+                </InputItems>
+              )
+            },
+          }}
+        ></FoldItem>
       )
     }
   },

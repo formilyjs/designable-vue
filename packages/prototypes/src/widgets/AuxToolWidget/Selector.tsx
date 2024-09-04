@@ -56,7 +56,7 @@ const SelectorComponent = observer(
   defineComponent({
     name: 'SelectorComponent',
     props: ['node'],
-    setup(props, { }) {
+    setup(props, {}) {
       const expand = ref(false)
       const setExpand = (value: boolean) => {
         expand.value = value

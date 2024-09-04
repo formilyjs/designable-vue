@@ -56,14 +56,16 @@ export const BoxStyleSetter = defineComponent({
           if (position === 'all') {
             emit(
               'change',
-              `${value || '0px'} ${value || '0px'} ${value || '0px'} ${value || '0px'
+              `${value || '0px'} ${value || '0px'} ${value || '0px'} ${
+                value || '0px'
               }`
             )
           } else {
             matched[PositionMap[position]] = value
             emit(
               'change',
-              `${matched[1] || '0px'} ${matched[2] || '0px'} ${matched[3] || '0px'
+              `${matched[1] || '0px'} ${matched[2] || '0px'} ${
+                matched[3] || '0px'
               } ${matched[4] || '0px'}`
             )
           }
@@ -84,52 +86,55 @@ export const BoxStyleSetter = defineComponent({
       }
 
       return (
-        <FoldItem class={cls(prefix)} label={field.title} v-slots={{
-          base: () => {
-            return (
-              <SizeInput
-                value={positionHandlers.all.value}
-                onChange={positionHandlers.all.onChange}
-                exclude={['auto', 'inherit']}
-              />
-            )
-          },
-          extra: () => {
-            return (
-              <InputItems width="50%">
-                <InputItems.Item icon={props.labels[0]}>
-                  <SizeInput
-                    value={positionHandlers.top.value}
-                    onChange={positionHandlers.top.onChange}
-                    exclude={['auto', 'inherit']}
-                  />
-                </InputItems.Item>
-                <InputItems.Item icon={props.labels[1]}>
-                  <SizeInput
-                    value={positionHandlers.right.value}
-                    onChange={positionHandlers.right.onChange}
-                    exclude={['auto', 'inherit']}
-                  />
-                </InputItems.Item>
-                <InputItems.Item icon={props.labels[2]}>
-                  <SizeInput
-                    value={positionHandlers.bottom.value}
-                    onChange={positionHandlers.bottom.onChange}
-                    exclude={['auto', 'inherit']}
-                  />
-                </InputItems.Item>
-                <InputItems.Item icon={props.labels[3]}>
-                  <SizeInput
-                    value={positionHandlers.left.value}
-                    onChange={positionHandlers.left.onChange}
-                    exclude={['auto', 'inherit']}
-                  />
-                </InputItems.Item>
-              </InputItems>
-            )
-          }
-        }}>
-        </FoldItem>
+        <FoldItem
+          class={cls(prefix)}
+          label={field.title}
+          v-slots={{
+            base: () => {
+              return (
+                <SizeInput
+                  value={positionHandlers.all.value}
+                  onChange={positionHandlers.all.onChange}
+                  exclude={['auto', 'inherit']}
+                />
+              )
+            },
+            extra: () => {
+              return (
+                <InputItems width="50%">
+                  <InputItems.Item icon={props.labels[0]}>
+                    <SizeInput
+                      value={positionHandlers.top.value}
+                      onChange={positionHandlers.top.onChange}
+                      exclude={['auto', 'inherit']}
+                    />
+                  </InputItems.Item>
+                  <InputItems.Item icon={props.labels[1]}>
+                    <SizeInput
+                      value={positionHandlers.right.value}
+                      onChange={positionHandlers.right.onChange}
+                      exclude={['auto', 'inherit']}
+                    />
+                  </InputItems.Item>
+                  <InputItems.Item icon={props.labels[2]}>
+                    <SizeInput
+                      value={positionHandlers.bottom.value}
+                      onChange={positionHandlers.bottom.onChange}
+                      exclude={['auto', 'inherit']}
+                    />
+                  </InputItems.Item>
+                  <InputItems.Item icon={props.labels[3]}>
+                    <SizeInput
+                      value={positionHandlers.left.value}
+                      onChange={positionHandlers.left.onChange}
+                      exclude={['auto', 'inherit']}
+                    />
+                  </InputItems.Item>
+                </InputItems>
+              )
+            },
+          }}
+        ></FoldItem>
       )
     }
   },

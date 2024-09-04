@@ -9,7 +9,7 @@ import {
   usePrefix,
   useSelected,
   useWorkbench,
-  useEffect
+  useEffect,
 } from '@formily/element-plus-prototypes'
 import { SchemaField } from './SchemaField'
 import { SettingsFormSymbol } from './shared/context'
@@ -113,10 +113,7 @@ export const SettingsForm = defineComponent({
         if (!source?.isEmpty && formRef.value) {
           return (
             <div class={cls(prefix)} key={source.key}>
-              <Form
-                key={formRef.value.id}
-                form={formRef.value}
-              >
+              <Form key={formRef.value.id} form={formRef.value}>
                 <FormLayout
                   labelCol={9}
                   wrapperCol={24}
@@ -125,7 +122,8 @@ export const SettingsForm = defineComponent({
                   labelAlign="left"
                   wrapperAlign="right"
                   feedbackLayout="none"
-                  tooltipLayout="text">
+                  tooltipLayout="text"
+                >
                   <SchemaField
                     schema={source.schema}
                     components={props.components}

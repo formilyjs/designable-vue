@@ -20,7 +20,9 @@ export default defineComponent({
         <MonacoInput
           {...attrs}
           value={code.value}
-          onChange={(value) => emit('change', transformToTreeNode(JSON.parse(value)))}
+          onChange={(value) =>
+            emit('change', transformToTreeNode(JSON.parse(value)))
+          }
           language="json"
           height="100%"
           width="100%"

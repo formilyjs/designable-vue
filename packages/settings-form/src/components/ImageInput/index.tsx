@@ -1,5 +1,9 @@
 import { ElInput as Input, ElUpload as Upload } from 'element-plus'
-import { usePrefix, IconWidget, useContext } from '@formily/element-plus-prototypes'
+import {
+  usePrefix,
+  IconWidget,
+  useContext,
+} from '@formily/element-plus-prototypes'
 import { SettingsFormSymbol } from '../../shared/context'
 import cls from 'classnames'
 import './styles.less'
@@ -23,9 +27,9 @@ export const ImageInput = defineComponent({
           <Input
             {...{
               ...props,
-              "onUpdate:modelValue": (e) => {
+              'onUpdate:modelValue': (e) => {
                 emit('change', e)
-              }
+              },
             }}
             v-slots={{
               prefix: () => {
@@ -53,11 +57,9 @@ export const ImageInput = defineComponent({
                     />
                   </Upload>
                 )
-              }
+              },
             }}
-          >
-
-          </Input>
+          ></Input>
         </div>
       )
     }

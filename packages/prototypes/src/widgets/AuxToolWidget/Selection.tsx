@@ -6,7 +6,7 @@ import {
   useCursor,
   useDragon,
   usePrefix,
-  useDesigner
+  useDesigner,
 } from '../../hooks'
 import { ResizeHandler } from './ResizeHandler'
 import { observer } from '@formily/reactive-vue'
@@ -61,7 +61,11 @@ export const SelectionBox = defineComponent({
         [designer.props?.nodeSelectionIdAttrName!]: props.node.id,
       }
       return (
-        <div {...selectionId} class={prefixRef.value} style={createSelectionStyle()}>
+        <div
+          {...selectionId}
+          class={prefixRef.value}
+          style={createSelectionStyle()}
+        >
           <div class={innerPrefix}></div>
           <ResizeHandler node={props.node} />
           <TranslateHandler node={props.node} />

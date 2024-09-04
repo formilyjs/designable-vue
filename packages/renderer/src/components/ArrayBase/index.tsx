@@ -81,13 +81,30 @@ export const createArrayBehavior = (name: string) => {
   )
 }
 
-export const ArrayBase =
-  composeExport(FArrayBase, {
-    Addition: FArrayBase.Addition,
-    Index: (props, { attrs }) => (<span {...attrs} > #1. </span>),
-    Item: FArrayBase.Item,
-    MoveDown: (props, { attrs }) => (<ElButton size='small' {...attrs}><ElIcon><ArrowDown></ArrowDown></ElIcon></ElButton>),
-    MoveUp: (props, { attrs }) => (<ElButton size='small' {...attrs}><ElIcon><ArrowUp></ArrowUp></ElIcon></ElButton>),
-    Remove: (props, { attrs }) => (<ElButton size='small' {...attrs}><ElIcon><Delete></Delete></ElIcon></ElButton>),
-    SortHandle: FArrayBase.SortHandle
-  })
+export const ArrayBase = composeExport(FArrayBase, {
+  Addition: FArrayBase.Addition,
+  Index: (props, { attrs }) => <span {...attrs}> #1. </span>,
+  Item: FArrayBase.Item,
+  MoveDown: (props, { attrs }) => (
+    <ElButton size="small" {...attrs}>
+      <ElIcon>
+        <ArrowDown></ArrowDown>
+      </ElIcon>
+    </ElButton>
+  ),
+  MoveUp: (props, { attrs }) => (
+    <ElButton size="small" {...attrs}>
+      <ElIcon>
+        <ArrowUp></ArrowUp>
+      </ElIcon>
+    </ElButton>
+  ),
+  Remove: (props, { attrs }) => (
+    <ElButton size="small" {...attrs}>
+      <ElIcon>
+        <Delete></Delete>
+      </ElIcon>
+    </ElButton>
+  ),
+  SortHandle: FArrayBase.SortHandle,
+})

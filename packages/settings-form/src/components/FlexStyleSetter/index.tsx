@@ -33,14 +33,12 @@ export const FlexStyleSetter = observer(
                   },
                 ]}
                 reactions={(field) => {
-                  field.decorator[1].title = `Flex Direction : ${field.value || ''
-                    }`
+                  field.decorator[1].title = `Flex Direction : ${
+                    field.value || ''
+                  }`
                 }}
                 decorator={[InputItems.Item]}
-                component={[
-                  Radio.Group,
-                  { optionType: 'button' },
-                ]}
+                component={[Radio.Group, { optionType: 'button' }]}
               />
               <Field
                 name="flexWrap"
@@ -59,10 +57,7 @@ export const FlexStyleSetter = observer(
                   field.decorator[1].title = `Flex Wrap : ${field.value || ''}`
                 }}
                 decorator={[InputItems.Item]}
-                component={[
-                  Radio.Group,
-                  { optionType: 'button' },
-                ]}
+                component={[Radio.Group, { optionType: 'button' }]}
               />
               <Field
                 name="alignContent"
@@ -94,14 +89,12 @@ export const FlexStyleSetter = observer(
                   },
                 ]}
                 reactions={(field) => {
-                  field.decorator[1].title = `Align Content : ${field.value || ''
-                    }`
+                  field.decorator[1].title = `Align Content : ${
+                    field.value || ''
+                  }`
                 }}
                 decorator={[InputItems.Item]}
-                component={[
-                  Radio.Group,
-                  { optionType: 'button' },
-                ]}
+                component={[Radio.Group, { optionType: 'button' }]}
               />
               <Field
                 name="justifyContent"
@@ -133,14 +126,12 @@ export const FlexStyleSetter = observer(
                   },
                 ]}
                 reactions={(field) => {
-                  field.decorator[1].title = `Justify Content : ${field.value || ''
-                    }`
+                  field.decorator[1].title = `Justify Content : ${
+                    field.value || ''
+                  }`
                 }}
                 decorator={[InputItems.Item]}
-                component={[
-                  Radio.Group,
-                  { optionType: 'button' },
-                ]}
+                component={[Radio.Group, { optionType: 'button' }]}
               />
               <Field
                 name="alignItems"
@@ -168,14 +159,12 @@ export const FlexStyleSetter = observer(
                   },
                 ]}
                 reactions={(field) => {
-                  field.decorator[1].title = `Align Items : ${field.value || ''
-                    }`
+                  field.decorator[1].title = `Align Items : ${
+                    field.value || ''
+                  }`
                 }}
                 decorator={[InputItems.Item]}
-                component={[
-                  Radio.Group,
-                  { optionType: 'button' },
-                ]}
+                component={[Radio.Group, { optionType: 'button' }]}
               />
             </InputItems>
           </div>

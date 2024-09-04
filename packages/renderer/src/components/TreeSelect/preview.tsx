@@ -7,8 +7,9 @@ import { AllLocales } from '../../locales'
 import { composeExport } from '@formily/element-plus/src/__builtins__'
 import { DefineComponent } from 'vue'
 
-export const TreeSelect: DnFC<DefineComponent<any>> =
-  composeExport(FTreeSelect, {
+export const TreeSelect: DnFC<DefineComponent<any>> = composeExport(
+  FTreeSelect,
+  {
     Behavior: createBehavior({
       name: 'TreeSelect',
       extends: ['Field'],
@@ -31,4 +32,5 @@ export const TreeSelect: DnFC<DefineComponent<any>> =
         },
       ],
     }),
-  })
+  }
+)

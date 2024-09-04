@@ -78,65 +78,69 @@ export const BorderStyleSetter = observer(
       return () => {
         const prefix = unref(prefixRef)
         const field = unref(fieldRef)
-        const createReaction =
-          (position: string) => (field: DataField) => {
-            field.display =
-              currentPosition.value === position ? 'visible' : 'hidden'
-            if (position !== 'center') {
-              const borderStyle = field.query('.borderStyle').value()
-              const borderWidth = field.query('.borderWidth').value()
-              const borderColor = field.query('.borderColor').value()
-              if (borderStyle || borderWidth || borderColor) {
-                field.value = undefined
-              }
+        const createReaction = (position: string) => (field: DataField) => {
+          field.display =
+            currentPosition.value === position ? 'visible' : 'hidden'
+          if (position !== 'center') {
+            const borderStyle = field.query('.borderStyle').value()
+            const borderWidth = field.query('.borderWidth').value()
+            const borderColor = field.query('.borderColor').value()
+            if (borderStyle || borderWidth || borderColor) {
+              field.value = undefined
             }
           }
+        }
 
         return (
-          <FoldItem label={field.title} v-slots={{
-            extra: () => {
-              return (
-                <div class={cls(prefix)}>
-                  <div class={prefix + '-position'}>
-                    <PositionInput
-                      value={currentPosition.value}
-                      onChange={(value) => {
-                        currentPosition.value = value
-                      }}
-                    />
+          <FoldItem
+            label={field.title}
+            v-slots={{
+              extra: () => {
+                return (
+                  <div class={cls(prefix)}>
+                    <div class={prefix + '-position'}>
+                      <PositionInput
+                        value={currentPosition.value}
+                        onChange={(value) => {
+                          currentPosition.value = value
+                        }}
+                      />
+                    </div>
+                    <div class={prefix + '-input'}>
+                      {Positions.map((position, key) => {
+                        return (
+                          <>
+                            <Field
+                              name={createBorderProp(position, 'style')}
+                              basePath={field.address.parent()}
+                              dataSource={BorderStyleOptions}
+                              reactions={createReaction(position)}
+                              component={[
+                                Select,
+                                { placeholder: 'Please Select' },
+                              ]}
+                            />
+                            <Field
+                              name={createBorderProp(position, 'width')}
+                              basePath={field.address.parent()}
+                              reactions={createReaction(position)}
+                              component={[SizeInput, { exclude: ['auto'] }]}
+                            />
+                            <Field
+                              name={createBorderProp(position, 'color')}
+                              basePath={field.address.parent()}
+                              reactions={createReaction(position)}
+                              component={[ColorInput]}
+                            />
+                          </>
+                        )
+                      })}
+                    </div>
                   </div>
-                  <div class={prefix + '-input'}>
-                    {Positions.map((position, key) => {
-                      return (
-                        <>
-                          <Field
-                            name={createBorderProp(position, 'style')}
-                            basePath={field.address.parent()}
-                            dataSource={BorderStyleOptions}
-                            reactions={createReaction(position)}
-                            component={[Select, { placeholder: 'Please Select' }]}
-                          />
-                          <Field
-                            name={createBorderProp(position, 'width')}
-                            basePath={field.address.parent()}
-                            reactions={createReaction(position)}
-                            component={[SizeInput, { exclude: ['auto'] }]}
-                          />
-                          <Field
-                            name={createBorderProp(position, 'color')}
-                            basePath={field.address.parent()}
-                            reactions={createReaction(position)}
-                            component={[ColorInput]}
-                          />
-                        </>
-                      )
-                    })}
-                  </div>
-                </div>
-              )
-            }
-          }}>
-          </FoldItem>
+                )
+              },
+            }}
+          ></FoldItem>
         )
       }
     },

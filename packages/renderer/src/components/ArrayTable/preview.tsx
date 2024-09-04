@@ -1,8 +1,4 @@
-import {
-  ElTable,
-  ElTableColumn,
-  ElRow,
-} from 'element-plus'
+import { ElTable, ElTableColumn, ElRow } from 'element-plus'
 import { TreeNode, createBehavior, createResource } from '@designable/core'
 import {
   useTreeNode,
@@ -55,7 +51,9 @@ const HeaderCell = defineComponent({
         <div
           {...props}
           style={{ display: 'inline-flex' }}
-          data-designer-node-id={props.className.match(/data-id\:([^\s]+)/)?.[1]}
+          data-designer-node-id={
+            props.className.match(/data-id\:([^\s]+)/)?.[1]
+          }
         >
           {slots.default?.()}
         </div>
@@ -83,7 +81,9 @@ const BodyCell = defineComponent({
         <div
           {...props}
           style={{ display: 'inline-flex' }}
-          data-designer-node-id={props.className.match(/data-id\:([^\s]+)/)?.[1]}
+          data-designer-node-id={
+            props.className.match(/data-id\:([^\s]+)/)?.[1]
+          }
         >
           {slots.default?.()}
         </div>
@@ -207,8 +207,7 @@ export const ArrayTable: DnFC<VNode> = composeExport(
 
         useDropTemplate('ArrayTable.Column', (source) => {
           return source.map((node: TreeNode) => {
-            if (node.props)
-              node.props.title = undefined
+            if (node.props) node.props.title = undefined
             return node
           })
         })

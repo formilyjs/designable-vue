@@ -14,40 +14,48 @@ const SelectOption = defineComponent({
       const _slots =
         options.length !== 0
           ? {
-            default: () =>
-              options.map((option) => {
-                if (typeof option === 'string') {
-                  return h(
-                    ElOption,
-                    { props: { value: option, label: option } },
-                    {
-                      default: () => [
-                        resolveComponent(slots?.option, { option }),
-                      ],
-                    }
-                  )
-                } else {
-                  return h(
-                    ElOption,
-                    {
-                      props: {
-                        ...option,
+              default: () =>
+                options.map((option) => {
+                  if (typeof option === 'string') {
+                    return h(
+                      ElOption,
+                      { props: { value: option, label: option } },
+                      {
+                        default: () => [
+                          resolveComponent(slots?.option, { option }),
+                        ],
+                      }
+                    )
+                  } else {
+                    return h(
+                      ElOption,
+                      {
+                        props: {
+                          ...option,
+                        },
                       },
-                    },
-                    {
-                      default: () => [
-                        resolveComponent(slots?.option ?? option.component, {
-                          option,
-                        }),
-                      ],
-                    }
-                  )
-                }
-              }),
-          }
+                      {
+                        default: () => [
+                          resolveComponent(slots?.option ?? option.component, {
+                            option,
+                          }),
+                        ],
+                      }
+                    )
+                  }
+                }),
+            }
           : slots
       return (
-        <ElSelect modelValue={props.value} v-slots={_slots} {...{ "onUpdate:modelValue": (value: any) => { emit('change', value) } }} />
+        <ElSelect
+          modelValue={props.value}
+          v-slots={_slots}
+          {...{
+            'onUpdate:modelValue': (value: any) => {
+              emit('change', value)
+            },
+          }}
+        />
       )
     }
   },

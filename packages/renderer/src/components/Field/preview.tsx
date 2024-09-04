@@ -135,7 +135,9 @@ const toDesignableFieldProps = (
   const description = results.description
   results.title =
     title && (() => <span data-content-editable="title">{title}</span>)
-  results.description = description && (<span data-content-editable="description">{results.description}</span>)
+  results.description = description && (
+    <span data-content-editable="description">{results.description}</span>
+  )
   return results
 }
 //
@@ -159,16 +161,28 @@ const FieldComponent = observer(
         if (props.type === 'object') {
           return (
             <Container>
-              <ObjectField name={nodeRef.value.id} {...fieldProps} v-slots={slots} />
+              <ObjectField
+                name={nodeRef.value.id}
+                {...fieldProps}
+                v-slots={slots}
+              />
             </Container>
           )
         } else if (props.type === 'array') {
           return (
-            <ArrayField {...fieldProps} v-slots={slots} name={nodeRef.value.id} />
+            <ArrayField
+              {...fieldProps}
+              v-slots={slots}
+              name={nodeRef.value.id}
+            />
           )
         } else if (nodeRef.value.props?.type === 'void') {
           return (
-            <VoidField {...fieldProps} v-slots={slots} name={nodeRef.value.id} />
+            <VoidField
+              {...fieldProps}
+              v-slots={slots}
+              name={nodeRef.value.id}
+            />
           )
         }
         return <InternalField {...fieldProps} name={nodeRef.value.id} />

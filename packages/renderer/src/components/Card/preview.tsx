@@ -17,13 +17,17 @@ export const Card: DnFC<VNode> = composeExport(
       const style = useStyle()
       return () => {
         return (
-          <ElCard {...props} style={style} v-slots={{
-            header: () => (
-              <span data-content-editable="x-component-props.title">
-                {props.title}
-              </span>
-            )
-          }}>
+          <ElCard
+            {...props}
+            style={style}
+            v-slots={{
+              header: () => (
+                <span data-content-editable="x-component-props.title">
+                  {props.title}
+                </span>
+              ),
+            }}
+          >
             {slots.default?.()}
           </ElCard>
         )

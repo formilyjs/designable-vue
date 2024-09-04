@@ -22,7 +22,7 @@ export const ColorInput = defineComponent({
             {...{
               'onUpdate:modelValue': (e) => {
                 emit('change', e)
-              }
+              },
             }}
             v-slots={{
               prefix: () => {
@@ -32,11 +32,11 @@ export const ColorInput = defineComponent({
                     {...{
                       'onUpdate:modelValue': (e) => {
                         emit('change', e)
-                      }
+                      },
                     }}
                   />
                 )
-              }
+              },
             }}
           />
         </div>

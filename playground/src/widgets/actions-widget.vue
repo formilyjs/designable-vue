@@ -4,7 +4,9 @@
       <el-radio-button label="zh-cn">简体中文</el-radio-button>
       <el-radio-button label="en-us">English</el-radio-button>
     </el-radio-group>
-    <el-button :style="{ marginLeft: '10px' }" @click="handleSaveSchema">保存</el-button>
+    <el-button :style="{ marginLeft: '10px' }" @click="handleSaveSchema"
+      >保存</el-button
+    >
     <el-button @click="handleSaveSchema">发布</el-button>
   </div>
 </template>

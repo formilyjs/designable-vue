@@ -1,7 +1,7 @@
 import { TreeNode } from '@designable/core'
 import { observer } from '@formily/reactive-vue'
 import { IconWidget } from '../IconWidget'
-import { useDesigner, usePrefix, } from '../../hooks'
+import { useDesigner, usePrefix } from '../../hooks'
 import { useStyle } from '../../shared'
 import { ElButton } from 'element-plus'
 import { CSSProperties, defineComponent } from 'vue'
@@ -34,9 +34,8 @@ export const DragHandler = observer(
           </button>
         )
       }
-    }
+    },
   })
-
 )
 
 DragHandler.displayName = 'DragHandler'

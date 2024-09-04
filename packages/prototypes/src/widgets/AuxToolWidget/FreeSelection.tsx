@@ -29,10 +29,8 @@ export const FreeSelection = observer(
           const rect = calcRectByStartEndPoint(
             startDragPoint,
             currentPoint,
-            viewport.scrollX -
-            cursor.dragStartScrollOffset.scrollX,
-            viewport.scrollY -
-            cursor.dragStartScrollOffset.scrollY
+            viewport.scrollX - cursor.dragStartScrollOffset.scrollX,
+            viewport.scrollY - cursor.dragStartScrollOffset.scrollY
           )
 
           const baseStyle: any = {

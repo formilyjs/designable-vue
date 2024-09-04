@@ -31,8 +31,7 @@ export const FormGrid = composeExport(
       return () => {
         const node = nodeRef.value
         if (!node) return
-        if (node.children.length === 0)
-          return <DroppableWidget {...attrs} />
+        if (node.children.length === 0) return <DroppableWidget {...attrs} />
         // const totalColumns = node.children.reduce(
         //   (buf, child) =>
         //     buf + (child.props?.['x-component-props']?.gridSpan ?? 1),
@@ -40,9 +39,7 @@ export const FormGrid = composeExport(
         // )
         return (
           <div class="dn-grid" {...nodeIdRef.value}>
-            <FormilyGird {...attrs}>
-              {slots.default?.()}
-            </FormilyGird>
+            <FormilyGird {...attrs}>{slots.default?.()}</FormilyGird>
             <LoadTemplate
               actions={[
                 {
@@ -72,10 +69,7 @@ export const FormGrid = composeExport(
       setup(props, { attrs, slots }) {
         return () => {
           return (
-            <DroppableWidget
-              {...attrs}
-              data-grid-span={props.gridSpan}
-            >
+            <DroppableWidget {...attrs} data-grid-span={props.gridSpan}>
               {slots.default?.()}
             </DroppableWidget>
           )
@@ -97,12 +91,15 @@ export const FormGrid = composeExport(
       {
         name: 'FormGrid.GridColumn',
         extends: ['Field'],
-        selector: (node) => node.props?.['x-component'] === 'FormGrid.GridColumn',
+        selector: (node) =>
+          node.props?.['x-component'] === 'FormGrid.GridColumn',
         designerProps: {
           droppable: true,
           resizable: {
             width(node) {
-              const span = Number(node.props?.['x-component-props']?.gridSpan ?? 1)
+              const span = Number(
+                node.props?.['x-component-props']?.gridSpan ?? 1
+              )
               return {
                 plus: () => {
                   if (span + 1 > 12) return

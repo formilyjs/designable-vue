@@ -14,9 +14,7 @@ export const Card: ISchema & { Addition?: ISchema } = {
       enum: ['always', 'hover', 'never'],
       'x-decorator': 'FormItem',
       'x-component': 'Select',
-      'x-component-props': {
-        
-      },
+      'x-component-props': {},
     },
   },
 }

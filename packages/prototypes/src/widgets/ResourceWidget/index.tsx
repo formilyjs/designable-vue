@@ -46,15 +46,15 @@ export const ResourceWidget = observer(
             {...{ key: node?.id, 'data-designer-source-id': node?.id }}
           >
             {thumb && <img class={prefix + '-item-thumb'} src={thumb} />}
-            {icon && isVNode(icon) ?
+            {icon && isVNode(icon) ? (
               <>{icon}</>
-              : (
-                <IconWidget
-                  class={prefix + '-item-icon'}
-                  infer={icon}
-                  style={{ width: '150px', height: '40px' }}
-                />
-              )}
+            ) : (
+              <IconWidget
+                class={prefix + '-item-icon'}
+                infer={icon}
+                style={{ width: '150px', height: '40px' }}
+              />
+            )}
             <span class={prefix + '-item-text'}>
               {title || <NodeTitleWidget node={node}></NodeTitleWidget>}
             </span>

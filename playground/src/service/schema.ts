@@ -19,5 +19,5 @@ export const loadInitialSchema = (designer: Engine) => {
       JSON.parse(localStorage.getItem('formily-schema'))
     )
     designer.setCurrentTree(tree)
-  } catch (err) { }
+  } catch (err) {}
 }

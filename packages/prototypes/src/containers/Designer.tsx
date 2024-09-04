@@ -22,9 +22,18 @@ export const Designer = defineComponent({
     engine: {
       type: Object as PropType<IDesignerProps['engine']>,
     },
-    theme: { type: String as PropType<IDesignerProps['theme']>, default: 'light' },
-    prefixCls: { type: String as PropType<IDesignerProps['prefixCls']>, default: 'dn-' },
-    variables: { type: Object as PropType<IDesignerProps['variables']>, default: () => { } }
+    theme: {
+      type: String as PropType<IDesignerProps['theme']>,
+      default: 'light',
+    },
+    prefixCls: {
+      type: String as PropType<IDesignerProps['prefixCls']>,
+      default: 'dn-',
+    },
+    variables: {
+      type: Object as PropType<IDesignerProps['variables']>,
+      default: () => {},
+    },
   },
   setup(props, { slots }) {
     const engine = useDesigner()
@@ -51,9 +60,7 @@ export const Designer = defineComponent({
     })
 
     if (engine.value)
-      throw new Error(
-        'There can only be one Designable Engine Context'
-      )
+      throw new Error('There can only be one Designable Engine Context')
 
     return () => {
       return (

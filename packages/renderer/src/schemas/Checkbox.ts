@@ -20,7 +20,6 @@ Checkbox.Group = {
       'x-decorator': 'FormItem',
       'x-component': 'Radio.Group',
       'x-component-props': {
-        
         optionType: 'button',
       },
     },
@@ -30,9 +29,7 @@ Checkbox.Group = {
       enum: ['large', 'default', 'small', null],
       'x-decorator': 'FormItem',
       'x-component': 'Select',
-      'x-component-props': {
-        
-      },
+      'x-component-props': {},
       'x-reactions': (field) => {
         field.visible =
           field.form?.values?.['x-component-props']?.optionType === 'button'

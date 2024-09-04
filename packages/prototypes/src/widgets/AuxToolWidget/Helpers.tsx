@@ -31,7 +31,7 @@ const HelpersComponent = defineComponent({
   name: 'Helpers',
   props: ['node', 'nodeRect'],
   emits: ['click'],
-  setup(props, { }) {
+  setup(props, {}) {
     const prefixRef = usePrefix('aux-helpers')
     const designerRef = useDesigner()
     const viewportRef = useViewport()
@@ -121,7 +121,7 @@ const HelpersComponent = defineComponent({
             [unref(position)]: true,
           })}
           ref={refContainer}
-          onClick={e => e.stopPropagation()}
+          onClick={(e) => e.stopPropagation()}
         >
           <div class={cls(prefixRef.value + '-content')}>
             <Selector node={node} />

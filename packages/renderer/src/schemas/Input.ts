@@ -8,25 +8,19 @@ export const Input: ISchema & { TextArea?: ISchema } = {
       type: 'number',
       'x-decorator': 'FormItem',
       'x-component': 'InputNumber',
-      'x-component-props': {
-
-      },
+      'x-component-props': {},
     },
     minlength: {
       type: 'number',
       'x-decorator': 'FormItem',
       'x-component': 'InputNumber',
-      'x-component-props': {
-
-      },
+      'x-component-props': {},
     },
     'show-word-limit': {
       type: 'number',
       'x-decorator': 'FormItem',
       'x-component': 'InputNumber',
-      'x-component-props': {
-
-      },
+      'x-component-props': {},
     },
     placeholder: {
       type: 'string',
@@ -34,7 +28,6 @@ export const Input: ISchema & { TextArea?: ISchema } = {
       'x-component': 'Input',
       'x-component-props': {
         clearable: true,
-
       },
     },
     clearable: {
@@ -46,17 +39,13 @@ export const Input: ISchema & { TextArea?: ISchema } = {
       type: 'string',
       'x-decorator': 'FormItem',
       'x-component': 'Input',
-      'x-component-props': {
-
-      },
+      'x-component-props': {},
     },
     'suffix-icon': {
       type: 'string',
       'x-decorator': 'FormItem',
       'x-component': 'Input',
-      'x-component-props': {
-
-      },
+      'x-component-props': {},
     },
     autofocus: {
       type: 'boolean',

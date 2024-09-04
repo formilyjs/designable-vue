@@ -32,7 +32,7 @@ const SchemaFields = createSchemaField({
     BorderStyleSetter,
     ValueInput,
     Slider,
-    FormItemSwitcher
+    FormItemSwitcher,
   },
 })
 

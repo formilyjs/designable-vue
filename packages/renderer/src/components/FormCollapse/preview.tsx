@@ -1,5 +1,8 @@
 import { observer } from '@formily/reactive-vue'
-import { ElCollapse as Collapse, ElCollapseItem as CollapseItem } from 'element-plus'
+import {
+  ElCollapse as Collapse,
+  ElCollapseItem as CollapseItem,
+} from 'element-plus'
 import { TreeNode, createBehavior, createResource } from '@designable/core'
 import {
   useTreeNode,
@@ -111,18 +114,23 @@ export const FormCollapse: DnFC<DefineComponent<any>> = composeExport(
                     [designer.props.nodeIdAttrName]: panel.id,
                   }
                   return (
-                    <CollapseItem {...attrs} key={panel.id} name={panel.id} v-slots={{
-                      title: () => {
-                        return (
-                          <span
-                            data-content-editable="x-component-props.title"
-                            data-content-editable-node-id={panel.id}
-                          >
-                            {props.title}
-                          </span>
-                        )
-                      }
-                    }}>
+                    <CollapseItem
+                      {...attrs}
+                      key={panel.id}
+                      name={panel.id}
+                      v-slots={{
+                        title: () => {
+                          return (
+                            <span
+                              data-content-editable="x-component-props.title"
+                              data-content-editable-node-id={panel.id}
+                            >
+                              {props.title}
+                            </span>
+                          )
+                        },
+                      }}
+                    >
                       <div
                         {...nodeId}
                         style={{
@@ -138,7 +146,7 @@ export const FormCollapse: DnFC<DefineComponent<any>> = composeExport(
                     </CollapseItem>
                   )
                 })}
-              </Collapse >
+              </Collapse>
             )
           }
           return (
@@ -187,8 +195,7 @@ export const FormCollapse: DnFC<DefineComponent<any>> = composeExport(
           allowAppend: (target, source) =>
             target.children.length === 0 ||
             source.every(
-              (node) =>
-                node.props?.['x-component'] === 'FormCollapse.Item'
+              (node) => node.props?.['x-component'] === 'FormCollapse.Item'
             ),
           propsSchema: createVoidFieldSchema(AllSchemas.FormCollapse),
         },
@@ -197,14 +204,11 @@ export const FormCollapse: DnFC<DefineComponent<any>> = composeExport(
       {
         name: 'FormCollapse.Item',
         extends: ['Field'],
-        selector: (node) =>
-          node.props?.['x-component'] === 'FormCollapse.Item',
+        selector: (node) => node.props?.['x-component'] === 'FormCollapse.Item',
         designerProps: {
           droppable: true,
           allowDrop: (node) => node.props?.['x-component'] === 'FormCollapse',
-          propsSchema: createVoidFieldSchema(
-            AllSchemas.FormCollapse.Item
-          ),
+          propsSchema: createVoidFieldSchema(AllSchemas.FormCollapse.Item),
         },
         designerLocales: AllLocales.FormCollapsePanel,
       }

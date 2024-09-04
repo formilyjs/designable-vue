@@ -3,7 +3,7 @@ import type { VNode } from 'vue'
 import { stylePrefix } from '../__builtins__'
 import { each } from '@formily/shared'
 import { useFormLayout } from '../form-layout'
-import { isValidElementNode } from "element-plus/es/utils/vue/vnode"
+import { isValidElementNode } from 'element-plus/es/utils/vue/vnode'
 
 export type SpaceProps = {
   size: 'small' | 'middle' | 'large' | number
@@ -24,7 +24,9 @@ export const Space = defineComponent({
   setup(props: SpaceProps, { slots }: SetupContext) {
     const layout = useFormLayout()
 
-    const resolveItems: (children: VNode[]) => VNode[] = (children: VNode[]) => {
+    const resolveItems: (children: VNode[]) => VNode[] = (
+      children: VNode[]
+    ) => {
       return children.reduce((buffer, children) => {
         if (!isValidElementNode(children)) {
           if (children.children)
@@ -47,7 +49,7 @@ export const Space = defineComponent({
 
       // 获取子节点数量
       let items: VNode[] = resolveItems(children)
-    
+
       const len = items.length
 
       if (len === 0) {
@@ -76,13 +78,13 @@ export const Space = defineComponent({
               i === len - 1
                 ? {}
                 : {
-                  [direction === 'vertical'
-                    ? 'marginBottom'
-                    : marginDirection]:
-                    typeof size === 'string'
-                      ? `${spaceSize[size]}px`
-                      : `${size}px`,
-                },
+                    [direction === 'vertical'
+                      ? 'marginBottom'
+                      : marginDirection]:
+                      typeof size === 'string'
+                        ? `${spaceSize[size]}px`
+                        : `${size}px`,
+                  },
           },
           { default: () => [child] }
         )

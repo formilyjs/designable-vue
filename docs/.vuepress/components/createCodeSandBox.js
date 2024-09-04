@@ -95,7 +95,7 @@ export function createCodeSandBox(codeStr) {
             "node_modules"
           ]
         }
-        `
+        `,
       },
       'package.json': {
         content: {
@@ -106,28 +106,24 @@ export function createCodeSandBox(codeStr) {
           },
           dependencies: {
             '@formily/element-plus': 'latest',
-            "core-js": "^3.8.3",
-            "vue": "^3.2.13"
+            'core-js': '^3.8.3',
+            vue: '^3.2.13',
           },
           devDependencies: {
-            "@vue/cli-plugin-babel": "~5.0.0",
-            "@vue/cli-service": "~5.0.0",
-            "@vue/cli-plugin-typescript": "~5.0.0",
-            "sass": "^1.32.7",
-            "sass-loader": "^12.0.0",
-            "typescript": "latest"
+            '@vue/cli-plugin-babel': '~5.0.0',
+            '@vue/cli-service': '~5.0.0',
+            '@vue/cli-plugin-typescript': '~5.0.0',
+            sass: '^1.32.7',
+            'sass-loader': '^12.0.0',
+            typescript: 'latest',
           },
           babel: {
-            presets: [
-              [
-                '@vue/cli-plugin-babel/preset',
-              ],
-            ],
+            presets: [['@vue/cli-plugin-babel/preset']],
           },
           vue: {
             devServer: {
               headers: {
-                'Access-Control-Allow-Origin': '*'
+                'Access-Control-Allow-Origin': '*',
               },
               host: '0.0.0.0',
               allowedHosts: 'all',
@@ -143,7 +139,7 @@ export function createCodeSandBox(codeStr) {
           const component: DefineComponent<{}, {}, any>
           export default component
         }
-      `
+      `,
       },
       'src/App.vue': {
         content: codeStr,

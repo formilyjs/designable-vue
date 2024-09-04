@@ -11,9 +11,15 @@
         <CompositePanel>
           <CompositePanelItem title="panels.Component" icon="Component">
             <ResourceWidget title="sources.Inputs" :sources="sources.Inputs" />
-            <ResourceWidget title="sources.Layouts" :sources="sources.Layouts" />
+            <ResourceWidget
+              title="sources.Layouts"
+              :sources="sources.Layouts"
+            />
             <ResourceWidget title="sources.Arrays" :sources="sources.Arrays" />
-            <ResourceWidget title="sources.Displays" :sources="sources.Displays" />
+            <ResourceWidget
+              title="sources.Displays"
+              :sources="sources.Displays"
+            />
           </CompositePanelItem>
           <CompositePanelItem title="panels.OutlinedTree" icon="Outline">
             <OutlineTreeWidget />
@@ -22,18 +28,23 @@
             <HistoryWidget />
           </CompositePanelItem>
         </CompositePanel>
-        <WorkspacePanel :style="{height:'100%'}">
+        <WorkspacePanel :style="{ height: '100%' }">
           <ToolbarPanel>
             <DesignerToolsWidget />
             <ViewToolsWidget :use="['DESIGNABLE', 'JSONTREE', 'PREVIEW']" />
           </ToolbarPanel>
           <ViewportPanel>
             <ViewPanel type="DESIGNABLE">
-              <ComponentTreeWidget :components="components"></ComponentTreeWidget>
+              <ComponentTreeWidget
+                :components="components"
+              ></ComponentTreeWidget>
             </ViewPanel>
             <ViewPanel type="JSONTREE" :scrollable="false">
               <template #default="tree, onChange">
-                <SchemaEditorWidget :tree="tree" @change="onChange"></SchemaEditorWidget>
+                <SchemaEditorWidget
+                  :tree="tree"
+                  @change="onChange"
+                ></SchemaEditorWidget>
               </template>
             </ViewPanel>
             <ViewPanel type="PREVIEW" :scrollable="false">

@@ -18,7 +18,6 @@ export const CommonTimePickerAPI = {
     'x-decorator': 'FormItem',
     'x-component': 'Select',
     'x-component-props': {
-      
       clearable: true,
     },
   },
@@ -27,7 +26,6 @@ export const CommonTimePickerAPI = {
     'x-decorator': 'FormItem',
     'x-component': 'Input',
     'x-component-props': {
-      
       clearable: true,
     },
   },
@@ -36,7 +34,6 @@ export const CommonTimePickerAPI = {
     'x-decorator': 'FormItem',
     'x-component': 'Input',
     'x-component-props': {
-      
       clearable: true,
     },
   },
@@ -45,7 +42,6 @@ export const CommonTimePickerAPI = {
     'x-decorator': 'FormItem',
     'x-component': 'Input',
     'x-component-props': {
-      
       clearable: true,
     },
   },
@@ -66,7 +62,6 @@ export const CommonTimePickerAPI = {
     'x-decorator': 'FormItem',
     'x-component': 'Select',
     'x-component-props': {
-      
       clearable: true,
     },
   },
@@ -75,7 +70,6 @@ export const CommonTimePickerAPI = {
     'x-decorator': 'FormItem',
     'x-component': 'Input',
     'x-component-props': {
-      
       clearable: true,
     },
   },
@@ -89,7 +83,6 @@ export const CommonTimePickerAPI = {
     'x-decorator': 'FormItem',
     'x-component': 'Input',
     'x-component-props': {
-      
       clearable: true,
     },
   },
@@ -103,7 +96,6 @@ export const CommonTimePickerAPI = {
     'x-decorator': 'FormItem',
     'x-component': 'Input',
     'x-component-props': {
-      
       clearable: true,
     },
   },
@@ -112,7 +104,6 @@ export const CommonTimePickerAPI = {
     'x-decorator': 'FormItem',
     'x-component': 'Input',
     'x-component-props': {
-      
       clearable: true,
     },
   },
@@ -121,7 +112,6 @@ export const CommonTimePickerAPI = {
     'x-decorator': 'FormItem',
     'x-component': 'Input',
     'x-component-props': {
-      
       clearable: true,
     },
   },

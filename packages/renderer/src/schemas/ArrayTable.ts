@@ -32,9 +32,7 @@ export const ArrayTable: ISchema & { Addition?: ISchema; Column?: ISchema } = {
       enum: ['large', 'default', 'small'],
       'x-decorator': 'FormItem',
       'x-component': 'Select',
-      'x-component-props': {
-
-      },
+      'x-component-props': {},
     },
   },
 }
@@ -47,7 +45,6 @@ const Column: ISchema = {
       'x-decorator': 'FormItem',
       'x-component': 'Input',
       'x-component-props': {
-
         clearable: true,
       },
     },
@@ -56,7 +53,6 @@ const Column: ISchema = {
       'x-decorator': 'FormItem',
       'x-component': 'Input',
       'x-component-props': {
-
         clearable: true,
       },
     },
@@ -64,17 +60,13 @@ const Column: ISchema = {
       type: 'string',
       'x-decorator': 'FormItem',
       'x-component': 'InputNumber',
-      'x-component-props': {
-
-      },
+      'x-component-props': {},
     },
     'min-width': {
       type: 'string',
       'x-decorator': 'FormItem',
       'x-component': 'InputNumber',
-      'x-component-props': {
-
-      },
+      'x-component-props': {},
     },
     fixed: {
       type: 'string',
@@ -82,7 +74,6 @@ const Column: ISchema = {
       'x-decorator': 'FormItem',
       'x-component': 'Select',
       'x-component-props': {
-
         clearable: true,
       },
       'x-reactions': (field) => {
@@ -109,9 +100,7 @@ const Column: ISchema = {
       enum: ['left', 'center', 'right'],
       'x-decorator': 'FormItem',
       'x-component': 'Select',
-      'x-component-props': {
-
-      },
+      'x-component-props': {},
     },
   },
 }
@@ -124,7 +113,6 @@ const Addition: ISchema = {
       'x-decorator': 'FormItem',
       'x-component': 'Input',
       'x-component-props': {
-
         clearable: true,
       },
     },
@@ -143,7 +131,6 @@ const Addition: ISchema = {
       'x-decorator': 'FormItem',
       'x-component': 'Input',
       'x-component-props': {
-
         clearable: true,
       },
     },

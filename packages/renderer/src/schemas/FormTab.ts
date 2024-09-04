@@ -59,7 +59,6 @@ FormTab.TabPane = {
       'x-decorator': 'FormItem',
       'x-component': 'Input',
       'x-component-props': {
-        
         clearable: true,
       },
     },
@@ -74,7 +73,6 @@ FormTab.TabPane = {
       'x-decorator': 'FormItem',
       'x-component': 'Input',
       'x-component-props': {
-        
         clearable: true,
       },
     },

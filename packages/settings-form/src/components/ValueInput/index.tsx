@@ -3,13 +3,19 @@
  * Todo: JSON、富文本，公式
  */
 import { createPolyInput } from '../PolyInput'
-import { ElSelect as Select, ElOption as Option, ElPopover as Popover, ElButton as Button } from 'element-plus'
+import {
+  ElSelect as Select,
+  ElOption as Option,
+  ElPopover as Popover,
+  ElButton as Button,
+} from 'element-plus'
 import { InputNumber, Input } from '@formily/element-plus'
 import { defineComponent } from 'vue-demi'
 import { MonacoInput } from '../MonacoInput'
 import { TextWidget } from '@formily/element-plus-prototypes'
 
-const STARTTAG_REX = /<([-A-Za-z0-9_]+)((?:\s+[a-zA-Z_:][-a-zA-Z0-9_:.]*(?:\s*=\s*(?:(?:"[^"]*")|(?:'[^']*')|[^>\s]+))?)*)\s*(\/?)>/
+const STARTTAG_REX =
+  /<([-A-Za-z0-9_]+)((?:\s+[a-zA-Z_:][-a-zA-Z0-9_:.]*(?:\s*=\s*(?:(?:"[^"]*")|(?:'[^']*')|[^>\s]+))?)*)\s*(\/?)>/
 
 const EXPRESSION_REX = /^\{\{([\s\S]*)\}\}$/
 
@@ -40,7 +46,7 @@ export const ValueInput = createPolyInput([
     type: 'TEXT',
     icon: 'Text',
     component: Input,
-    checker: isNormalText
+    checker: isNormalText,
   },
   {
     type: 'EXPRESSION',
@@ -55,10 +61,15 @@ export const ValueInput = createPolyInput([
               <div
                 style={{
                   width: '400px',
-                  height: '200px'
+                  height: '200px',
                 }}
               >
-                <MonacoInput {...attrs} value={props.value} onChange={value => emit('change', value)} language="javascript.expression" />
+                <MonacoInput
+                  {...attrs}
+                  value={props.value}
+                  onChange={(value) => emit('change', value)}
+                  language="javascript.expression"
+                />
               </div>
             )
           }
@@ -73,7 +84,7 @@ export const ValueInput = createPolyInput([
             <Popover
               width={'auto'}
               v-slots={{
-                reference: renderButton
+                reference: renderButton,
               }}
               trigger="click"
             >
@@ -81,19 +92,19 @@ export const ValueInput = createPolyInput([
             </Popover>
           )
         }
-      }
+      },
     }),
     checker: isExpression,
-    toInputValue: value => {
+    toInputValue: (value) => {
       if (!value || value === '{{}}') return
       const matched = String(value).match(EXPRESSION_REX)
       return matched?.[1] || value || ''
     },
-    toChangeValue: value => {
+    toChangeValue: (value) => {
       if (!value || value === '{{}}') return
       const matched = String(value).match(EXPRESSION_REX)
       return `{{${matched?.[1] || value || ''}}}`
-    }
+    },
   },
   {
     type: 'BOOLEAN',
@@ -108,9 +119,9 @@ export const ValueInput = createPolyInput([
             <Select
               modelValue={props.value}
               {...{
-                'onUpdate:modelValue': value => {
+                'onUpdate:modelValue': (value) => {
                   emit('change', value)
-                }
+                },
               }}
             >
               <Option label="True" value={true}></Option>
@@ -118,15 +129,15 @@ export const ValueInput = createPolyInput([
             </Select>
           )
         }
-      }
+      },
     }),
     checker: isBoolean,
-    toInputValue: value => {
+    toInputValue: (value) => {
       return !!value
     },
-    toChangeValue: value => {
+    toChangeValue: (value) => {
       return !!value
-    }
+    },
   },
   {
     type: 'NUMBER',
@@ -134,6 +145,6 @@ export const ValueInput = createPolyInput([
     component: InputNumber,
     checker: isNumber,
     toInputValue: takeNumber,
-    toChangeValue: takeNumber
-  }
+    toChangeValue: takeNumber,
+  },
 ])

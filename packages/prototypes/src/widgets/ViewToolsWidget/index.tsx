@@ -72,6 +72,4 @@ const VireToolsWidgetComponent = defineComponent({
   },
 })
 
-export const ViewToolsWidget = observer(
-  VireToolsWidgetComponent
-)
+export const ViewToolsWidget = observer(VireToolsWidgetComponent)

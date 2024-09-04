@@ -25,9 +25,9 @@ const createUnitType = (type: string) => {
               {...{
                 controlsPosition: 'right',
                 ...attrs,
-                "onUpdate:modelValue": (cb) => {
+                'onUpdate:modelValue': (cb) => {
                   emit('change', cb)
-                }
+                },
               }}
             />
           )

@@ -20,7 +20,6 @@ export const Cascader: ISchema = {
       'x-decorator': 'FormItem',
       'x-component': 'Input',
       'x-component-props': {
-        
         clearable: true,
       },
     },
@@ -45,7 +44,6 @@ export const Cascader: ISchema = {
       'x-decorator': 'FormItem',
       'x-component': 'Input',
       'x-component-props': {
-        
         clearable: true,
       },
     },
@@ -64,9 +62,7 @@ export const Cascader: ISchema = {
       type: 'number',
       'x-decorator': 'FormItem',
       'x-component': 'InputNumber',
-      'x-component-props': {
-        
-      },
+      'x-component-props': {},
     },
     'before-filter': {
       type: 'string',
@@ -77,9 +73,7 @@ export const Cascader: ISchema = {
       type: 'string',
       'x-decorator': 'FormItem',
       'x-component': 'Input',
-      'x-component-props': {
-        
-      },
+      'x-component-props': {},
     },
   },
 }

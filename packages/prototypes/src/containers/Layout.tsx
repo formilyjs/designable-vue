@@ -10,10 +10,22 @@ import { each } from '@designable/shared'
 export const Layout = defineComponent({
   name: 'Layout',
   props: {
-    theme: { type: String as PropType<IDesignerLayoutProps['theme']>, default: 'light' },
-    prefixCls: { type: String as PropType<IDesignerLayoutProps['prefixCls']>, default: 'dn-' },
-    variables: { type: Object as PropType<IDesignerLayoutProps['variables']>, default: () => { } },
-    position: { type: String as PropType<IDesignerLayoutProps['position']>, default: 'fixed' }
+    theme: {
+      type: String as PropType<IDesignerLayoutProps['theme']>,
+      default: 'light',
+    },
+    prefixCls: {
+      type: String as PropType<IDesignerLayoutProps['prefixCls']>,
+      default: 'dn-',
+    },
+    variables: {
+      type: Object as PropType<IDesignerLayoutProps['variables']>,
+      default: () => {},
+    },
+    position: {
+      type: String as PropType<IDesignerLayoutProps['position']>,
+      default: 'fixed',
+    },
   },
   setup(props, { slots }) {
     const layoutRef = useContext<IDesignerLayoutContext>(DesignerLayoutSymbol)
@@ -39,7 +51,7 @@ export const Layout = defineComponent({
         return {
           theme: props.theme!,
           prefixCls: props.prefixCls!,
-          position: props.position!
+          position: props.position!,
         }
       })
     )

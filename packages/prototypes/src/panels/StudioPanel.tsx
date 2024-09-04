@@ -29,12 +29,8 @@ const StudioPanelInternal = defineComponent({
         return (
           <div {...attrs} class={cls(prefix + '-container', 'root', position)}>
             <div class={prefix + '-header'}>
-              <div class={prefix + '-header-logo'}>
-                {slots.logo?.()}
-              </div>
-              <div class={prefix + '-header-actions'}>
-                {slots.actions?.()}
-              </div>
+              <div class={prefix + '-header-logo'}>{slots.logo?.()}</div>
+              <div class={prefix + '-header-actions'}>{slots.actions?.()}</div>
             </div>
             <div class={prefix}>{slots.default?.()}</div>
           </div>
@@ -54,7 +50,7 @@ export const StudioPanel = defineComponent({
   props: {
     theme: { type: String, default: 'light' },
     prefixCls: { type: String, default: 'dn-' },
-    position: { type: String, default: 'fixed' }
+    position: { type: String, default: 'fixed' },
   },
   setup(props, { slots }) {
     // const scopedSlots = {
@@ -63,7 +59,11 @@ export const StudioPanel = defineComponent({
     // }
     return () => (
       <Layout
-        {...{ theme: props.theme, prefixCls: props.prefixCls, position: props.position }}
+        {...{
+          theme: props.theme,
+          prefixCls: props.prefixCls,
+          position: props.position,
+        }}
       >
         <StudioPanelInternal {...props} v-slots={slots} />
       </Layout>

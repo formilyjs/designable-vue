@@ -8,7 +8,6 @@ export const Switch: ISchema = {
       'x-decorator': 'FormItem',
       'x-component': 'InputNumber',
       'x-component-props': {
-        
         clearable: true,
       },
     },
@@ -17,7 +16,6 @@ export const Switch: ISchema = {
       'x-decorator': 'FormItem',
       'x-component': 'Input',
       'x-component-props': {
-        
         clearable: true,
       },
     },
@@ -26,7 +24,6 @@ export const Switch: ISchema = {
       'x-decorator': 'FormItem',
       'x-component': 'Input',
       'x-component-props': {
-        
         clearable: true,
       },
     },
@@ -35,7 +32,6 @@ export const Switch: ISchema = {
       'x-decorator': 'FormItem',
       'x-component': 'Input',
       'x-component-props': {
-        
         clearable: true,
       },
     },
@@ -44,7 +40,6 @@ export const Switch: ISchema = {
       'x-decorator': 'FormItem',
       'x-component': 'Input',
       'x-component-props': {
-        
         clearable: true,
       },
     },
@@ -54,7 +49,7 @@ export const Switch: ISchema = {
       'x-component': 'ValueInput',
       'x-component-props': {
         exclude: ['EXPRESSION'],
-        
+
         clearable: true,
       },
     },
@@ -64,7 +59,7 @@ export const Switch: ISchema = {
       'x-component': 'ValueInput',
       'x-component-props': {
         exclude: ['EXPRESSION'],
-        
+
         clearable: true,
       },
     },

@@ -9,8 +9,12 @@ import { AllLocales } from '../../locales'
 import { merge } from '@formily/shared'
 import { VNode } from 'vue'
 
-export const Password: DnFC<VNode> =
-  composeExport(connect(FormilyPassword, mapProps({}, (args) => ({ ...args, password: true }))), {
+export const Password: DnFC<VNode> = composeExport(
+  connect(
+    FormilyPassword,
+    mapProps({}, (args) => ({ ...args, password: true }))
+  ),
+  {
     Behavior: createBehavior({
       name: 'Password',
       extends: ['Field'],
@@ -40,4 +44,5 @@ export const Password: DnFC<VNode> =
         },
       ],
     }),
-  })
+  }
+)

@@ -7,14 +7,18 @@ import { TextWidget } from '../TextWidget'
 import cls from 'classnames'
 import './styles.less'
 import { composeExport } from '@formily/element-plus/src/__builtins__'
-import { CSSProperties, defineComponent, VNode, ComponentCustomProps } from 'vue-demi'
+import {
+  CSSProperties,
+  defineComponent,
+  VNode,
+  ComponentCustomProps,
+} from 'vue-demi'
 
 // export interface INodeActionsWidgetProps {
 //   activeShown?: boolean
 // }
 
-export interface INodeActionsWidgetActionProps
-  extends ComponentCustomProps {
+export interface INodeActionsWidgetActionProps extends ComponentCustomProps {
   className?: string
   style?: CSSProperties
   title: VNode

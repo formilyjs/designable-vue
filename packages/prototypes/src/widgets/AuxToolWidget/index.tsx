@@ -1,8 +1,4 @@
-import {
-  useViewport,
-  useDesigner,
-  usePrefix,
-} from '../../hooks'
+import { useViewport, useDesigner, usePrefix } from '../../hooks'
 import { Insertion } from './Insertion'
 import { Selection } from './Selection'
 import { FreeSelection } from './FreeSelection'
@@ -15,7 +11,7 @@ import { defineComponent, onBeforeUnmount, ref } from 'vue-demi'
 const AuxToolWidgetComponent = defineComponent({
   name: 'DnAuxToolWidget',
   props: [],
-  setup(props, { }) {
+  setup(props, {}) {
     const engineRef = useDesigner()
     const viewportRef = useViewport()
     const prefixRef = usePrefix('auxtool')

@@ -64,4 +64,3 @@ export const DateRangePicker = createLocales(DatePicker, {
     title: '날짜범위 선택 상자',
   },
 })
-

@@ -15,9 +15,9 @@ export type RadioGroupProps = typeof ElRadioGroup & {
   value: any
   options?: (
     | (Omit<ElRadioProps, 'value'> & {
-      value: ElRadioProps['label']
-      label: SlotTypes
-    })
+        value: ElRadioProps['label']
+        label: SlotTypes
+      })
     | string
   )[]
   optionType: 'defalt' | 'button'
@@ -45,40 +45,48 @@ const RadioGroupOption = defineComponent({
       const children =
         options.length !== 0
           ? {
-            default: () =>
-              options.map((option) => {
-                if (typeof option === 'string') {
-                  return h(
-                    OptionType,
-                    { label: option },
-                    {
-                      default: () => [
-                        resolveComponent(slots?.option ?? option, { option }),
-                      ],
-                    }
-                  )
-                } else {
-                  return h(
-                    OptionType,
-                    {
-                      ...option,
-                      value: undefined,
-                      label: option.value,
-                    },
-                    {
-                      default: () => [
-                        resolveComponent(slots?.option ?? option.label, {
-                          option,
-                        }),
-                      ],
-                    }
-                  )
-                }
-              }),
-          }
+              default: () =>
+                options.map((option) => {
+                  if (typeof option === 'string') {
+                    return h(
+                      OptionType,
+                      { label: option },
+                      {
+                        default: () => [
+                          resolveComponent(slots?.option ?? option, { option }),
+                        ],
+                      }
+                    )
+                  } else {
+                    return h(
+                      OptionType,
+                      {
+                        ...option,
+                        value: undefined,
+                        label: option.value,
+                      },
+                      {
+                        default: () => [
+                          resolveComponent(slots?.option ?? option.label, {
+                            option,
+                          }),
+                        ],
+                      }
+                    )
+                  }
+                }),
+            }
           : slots
       return (
-        <ElRadioGroup {...{ modelValue: customProps.value, ...attrs, "onUpdate:modelValue": (value: any) => { emit('change', value) } }}>
+        <ElRadioGroup
+          {...{
+            modelValue: customProps.value,
+            ...attrs,
+            'onUpdate:modelValue': (value: any) => {
+              emit('change', value)
+            },
+          }}
+        >
           {children}
         </ElRadioGroup>
       )

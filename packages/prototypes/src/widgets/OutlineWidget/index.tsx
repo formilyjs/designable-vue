@@ -5,7 +5,16 @@ import { OutlineTreeNode } from './OutlineNode'
 import { Insertion } from './Insertion'
 import { TreeNode, Viewport } from '@designable/core'
 import { NodeSymbol } from './context'
-import { CSSProperties, defineComponent, onMounted, provide, ref, unref, VNode, onBeforeUnmount } from 'vue-demi'
+import {
+  CSSProperties,
+  defineComponent,
+  onMounted,
+  provide,
+  ref,
+  unref,
+  VNode,
+  onBeforeUnmount,
+} from 'vue-demi'
 import { useStyle } from '@formily/element-plus-prototypes'
 import { useEffect } from '../../shared'
 
@@ -26,7 +35,9 @@ export const OutlineTreeWidget = observer(
       const refInstance = ref<HTMLDivElement>()
       const prefixRef = usePrefix('outline-tree')
       const workbenchRef = useWorkbench()
-      const current = workbenchRef.value?.activeWorkspace || workbenchRef.value?.currentWorkspace
+      const current =
+        workbenchRef.value?.activeWorkspace ||
+        workbenchRef.value?.currentWorkspace
       const workspaceId = current?.id
       const treeRef = useTree(workspaceId)
       const outline = useOutline(workspaceId)
@@ -54,7 +65,14 @@ export const OutlineTreeWidget = observer(
         return () => {
           outlineRef.value?.onUnmount()
         }
-      }, [refInstance, outlineRef, outline, () => workbenchRef.value?.activeWorkspace || workbenchRef.value?.currentWorkspace])
+      }, [
+        refInstance,
+        outlineRef,
+        outline,
+        () =>
+          workbenchRef.value?.activeWorkspace ||
+          workbenchRef.value?.currentWorkspace,
+      ])
       // outlineRef
 
       return () => {

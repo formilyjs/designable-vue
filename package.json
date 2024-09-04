@@ -23,7 +23,9 @@
     "version:preminor": "lerna version preminor --preid beta",
     "version:major": "lerna version major",
     "release": "lerna publish from-package --yes",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "serve:playgroud": "cd playground && yarn serve",
+    "docs:playground": "cd playground && yarn build"
   },
   "devDependencies": {
     "@element-plus/icons-vue": "^2.0.4",

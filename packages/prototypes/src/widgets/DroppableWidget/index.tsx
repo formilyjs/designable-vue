@@ -2,7 +2,10 @@ import { TreeNode } from '@designable/core'
 import { observer } from '@formily/reactive-vue'
 import { useTreeNode, useNodeIdProps } from '../../hooks'
 import { NodeTitleWidget } from '../NodeTitleWidget'
-import { INodeActionsWidgetActionProps, NodeActionsWidget } from '../NodeActionsWidget'
+import {
+  INodeActionsWidgetActionProps,
+  NodeActionsWidget,
+} from '../NodeActionsWidget'
 import './styles.less'
 import { CSSProperties } from '@vue/runtime-dom'
 import { defineComponent } from 'vue-demi'
@@ -24,9 +27,11 @@ export const DroppableWidget = observer(
     props: {
       node: { type: Object as PropType<TreeNode> },
       height: {},
-      actions: { type: Array as PropType<Array<INodeActionsWidgetActionProps>> },
+      actions: {
+        type: Array as PropType<Array<INodeActionsWidgetActionProps>>,
+      },
       placeholder: { type: Boolean as PropType<boolean>, default: true },
-      hasChildren: { type: Boolean as PropType<boolean>, default: undefined }
+      hasChildren: { type: Boolean as PropType<boolean>, default: undefined },
     },
     inheritAttrs: false,
     setup(props, { attrs, slots }) {
@@ -37,13 +42,21 @@ export const DroppableWidget = observer(
         const target = props.node ?? nodeRef.value
         if (!target) return
         const children = slots.default?.()
-        const hasChildren = props.hasChildren ?? (target.children?.length > 0 && children)
+        const hasChildren =
+          props.hasChildren ?? (target.children?.length > 0 && children)
         return (
           <div {...nodeIdRef.value} {...attrs} class={attrs.class}>
             {hasChildren ? (
               children
             ) : props.placeholder ? (
-              <div style={{ height: isStr(props.height) ? props.height : props.height + 'px' }} class="dn-droppable-placeholder">
+              <div
+                style={{
+                  height: isStr(props.height)
+                    ? props.height
+                    : props.height + 'px',
+                }}
+                class="dn-droppable-placeholder"
+              >
                 <NodeTitleWidget node={target} />
               </div>
             ) : (
@@ -59,6 +72,6 @@ export const DroppableWidget = observer(
           </div>
         )
       }
-    }
+    },
   })
 )

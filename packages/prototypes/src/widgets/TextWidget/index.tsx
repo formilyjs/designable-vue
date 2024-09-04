@@ -33,7 +33,7 @@ const TextWidgetComponent = defineComponent({
 
     const takeMessage = (token: any) => {
       if (!token) return
-      token = isVNode(token) ? isText(token) ? token.children : token : token
+      token = isVNode(token) ? (isText(token) ? token.children : token) : token
       const message = isStr(token)
         ? GlobalRegistry.getDesignerMessage(token)
         : token
@@ -46,8 +46,7 @@ const TextWidgetComponent = defineComponent({
      */
     return () => (
       <>
-        {
-          takeMessage(slots.default?.()?.[0]) ||
+        {takeMessage(slots.default?.()?.[0]) ||
           takeMessage(props.token) ||
           takeMessage(props.defaultMessage)}
       </>
@@ -56,4 +55,3 @@ const TextWidgetComponent = defineComponent({
 })
 
 export const TextWidget = observer(TextWidgetComponent)
-

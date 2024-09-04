@@ -6,25 +6,19 @@ export const NumberPicker: ISchema = {
       type: 'number',
       'x-decorator': 'FormItem',
       'x-component': 'InputNumber',
-      'x-component-props': {
-        
-      },
+      'x-component-props': {},
     },
     max: {
       type: 'number',
       'x-decorator': 'FormItem',
       'x-component': 'InputNumber',
-      'x-component-props': {
-        
-      },
+      'x-component-props': {},
     },
     step: {
       type: 'number',
       'x-decorator': 'FormItem',
       'x-component': 'InputNumber',
-      'x-component-props': {
-        
-      },
+      'x-component-props': {},
     },
     'step-strictly': {
       type: 'boolean',
@@ -35,9 +29,7 @@ export const NumberPicker: ISchema = {
       type: 'number',
       'x-decorator': 'FormItem',
       'x-component': 'InputNumber',
-      'x-component-props': {
-        
-      },
+      'x-component-props': {},
     },
     size: {
       default: 'default',
@@ -45,9 +37,7 @@ export const NumberPicker: ISchema = {
       enum: ['large', 'default', 'small', null],
       'x-decorator': 'FormItem',
       'x-component': 'Select',
-      'x-component-props': {
-        
-      },
+      'x-component-props': {},
     },
     controls: {
       default: true,
@@ -65,9 +55,7 @@ export const NumberPicker: ISchema = {
       type: 'string',
       'x-decorator': 'FormItem',
       'x-component': 'Input',
-      'x-component-props': {
-        
-      },
+      'x-component-props': {},
     },
   },
 }

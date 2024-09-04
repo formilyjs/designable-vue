@@ -94,7 +94,7 @@ export function createPolyInput(polyTypes: PolyTypes = []) {
         const type = types?.find(({ type }) => type === current.value)
         const component = type?.component
         return (
-          <div class={cls(prefixRef.value)} >
+          <div class={cls(prefixRef.value)}>
             {component && (
               <div class={prefixRef.value + '-content'}>
                 <component

@@ -19,7 +19,7 @@ FormCollapse.CollapsePanel = {
       type: 'boolean',
       'x-decorator': 'FormItem',
       'x-component': 'Input',
-      'x-component-props': {  clearable: true },
+      'x-component-props': { clearable: true },
     },
     disabled: {
       default: false,

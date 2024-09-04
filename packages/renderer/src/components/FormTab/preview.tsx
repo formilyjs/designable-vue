@@ -80,9 +80,9 @@ export const FormTab: DnFC<DefineComponent<any>> = composeExport(
                 {...{
                   ...attrs,
                   modelValue: getCorrectActiveKey(activeKey!, tabs),
-                  "onUpdate:modelValue": (id: any) => {
+                  'onUpdate:modelValue': (id: any) => {
                     setActiveKey(id)
-                  }
+                  },
                 }}
               >
                 {tabs.map((tab) => {
@@ -106,7 +106,7 @@ export const FormTab: DnFC<DefineComponent<any>> = composeExport(
                               {props.label}
                             </span>
                           )
-                        }
+                        },
                       }}
                     >
                       <div

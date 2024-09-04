@@ -18,7 +18,7 @@
 
 ## 概要
 
-这是一个结合了 Formily & Element Plus的超酷组件库.
+这是一个结合了 Formily & Element Plus 的超酷组件库.
 
 ## 特性
 

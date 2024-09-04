@@ -16,7 +16,7 @@ import {
   unref,
   VNode,
   cloneVNode,
-  PropType
+  PropType,
 } from 'vue-demi'
 import { composeExport } from '@formily/element-plus/src/__builtins__'
 import { cloneElement, isVNode, useStyle } from '../../shared/'
@@ -44,8 +44,12 @@ export interface IIconWidgetProps extends HTMLElement {
 const __IconWidgetInner = defineComponent({
   name: 'DnIconWidget',
   props: {
-    tooltip: { type: Object as PropType<ElTooltipProps & { content: string | VNode }> },
-    infer: { type: [String, Function, Object] as PropType<IIconWidgetProps['infer']> },
+    tooltip: {
+      type: Object as PropType<ElTooltipProps & { content: string | VNode }>,
+    },
+    infer: {
+      type: [String, Function, Object] as PropType<IIconWidgetProps['infer']>,
+    },
     size: { type: [Number, String] },
   },
   inheritAttrs: false,
@@ -110,7 +114,13 @@ const __IconWidgetInner = defineComponent({
           if (infer[theme]) {
             return takeIcon(infer[theme])
           } else if (infer['shadow']) {
-            return <IconWidget.ShadowSVG width={width} height={height} content={infer['shadow']} />
+            return (
+              <IconWidget.ShadowSVG
+                width={width}
+                height={height}
+                content={infer['shadow']}
+              />
+            )
           }
         }
         return null
@@ -125,7 +135,11 @@ const __IconWidgetInner = defineComponent({
           const props = isObj(tooltip) ? tooltip : { content: tooltip }
           const { content, ..._props } = props as any
           return (
-            <ElTooltip showAfter={200} {..._props} v-slots={{ content: () => content }}>
+            <ElTooltip
+              showAfter={200}
+              {..._props}
+              v-slots={{ content: () => content }}
+            >
               {children}
             </ElTooltip>
           )
@@ -157,7 +171,7 @@ const ShadowSVG = defineComponent({
     height: [Number, String],
     content: String,
   },
-  setup(props, { }) {
+  setup(props, {}) {
     const refInstance = ref<HTMLDivElement>()
     const width = isNumSize(props.width) ? `${props.width}px` : props.width
     const height = isNumSize(props.height) ? `${props.height}px` : props.height
@@ -188,10 +202,7 @@ const Provider = defineComponent({
   },
 })
 
-export const IconWidget = composeExport(
-  IconWidgetInner,
-  {
-    ShadowSVG,
-    Provider,
-  }
-)
+export const IconWidget = composeExport(IconWidgetInner, {
+  ShadowSVG,
+  Provider,
+})

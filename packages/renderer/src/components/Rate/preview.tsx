@@ -1,5 +1,8 @@
 import { ElRate } from 'element-plus'
-import { composeExport, transformComponent } from '@formily/element-plus/src/__builtins__'
+import {
+  composeExport,
+  transformComponent,
+} from '@formily/element-plus/src/__builtins__'
 import { connect, mapProps, VueComponent } from '@formily/vue'
 import { createBehavior, createResource } from '@designable/core'
 import { DnFC } from '@formily/element-plus-prototypes'
@@ -8,9 +11,12 @@ import { AllSchemas } from '../../schemas'
 import { AllLocales } from '../../locales'
 import { VNode } from 'vue'
 
-const RateInner = connect(transformComponent(ElRate, {
-  change: 'onUpdate:modelValue'
-}), mapProps({ value: 'modelValue' }))
+const RateInner = connect(
+  transformComponent(ElRate, {
+    change: 'onUpdate:modelValue',
+  }),
+  mapProps({ value: 'modelValue' })
+)
 
 export const Rate: DnFC<VNode> = composeExport(RateInner, {
   Behavior: createBehavior({

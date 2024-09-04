@@ -20,8 +20,9 @@ const GhostWidgetComponent = defineComponent({
         autorun(() => {
           const cursor = unref(cursorRef)
           const ref = refInstance.value
-          const transform = `perspective(1px) translate3d(${cursor.position!.topClientX! - 18
-            }px,${cursor.position!.topClientY! - 12}px,0) scale(0.8)`
+          const transform = `perspective(1px) translate3d(${
+            cursor.position!.topClientX! - 18
+          }px,${cursor.position!.topClientY! - 12}px,0) scale(0.8)`
           if (!ref) return
           ref.style.transform = transform
         }),

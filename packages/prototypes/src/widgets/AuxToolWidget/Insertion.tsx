@@ -39,8 +39,9 @@ export const InsertionComponent = observer(
           ) {
             baseStyle.width = 2
             baseStyle.height = closestRect.height
-            baseStyle.transform = `perspective(1px) translate3d(${closestRect.x + closestRect.width - 2
-              }px,${closestRect.y}px,0)`
+            baseStyle.transform = `perspective(1px) translate3d(${
+              closestRect.x + closestRect.width - 2
+            }px,${closestRect.y}px,0)`
           } else if (
             closestDirection === ClosestPosition.InnerAfter ||
             closestDirection === ClosestPosition.Under ||
@@ -50,13 +51,15 @@ export const InsertionComponent = observer(
             if (isInlineLayout) {
               baseStyle.width = 2
               baseStyle.height = closestRect.height
-              baseStyle.transform = `perspective(1px) translate3d(${closestRect.x + closestRect.width - 2
-                }px,${closestRect.y}px,0)`
+              baseStyle.transform = `perspective(1px) translate3d(${
+                closestRect.x + closestRect.width - 2
+              }px,${closestRect.y}px,0)`
             } else {
               baseStyle.width = closestRect.width
               baseStyle.height = 2
-              baseStyle.transform = `perspective(1px) translate3d(${closestRect.x
-                }px,${closestRect.y + closestRect.height - 2}px,0)`
+              baseStyle.transform = `perspective(1px) translate3d(${
+                closestRect.x
+              }px,${closestRect.y + closestRect.height - 2}px,0)`
             }
           } else if (
             closestDirection === ClosestPosition.InnerBefore ||

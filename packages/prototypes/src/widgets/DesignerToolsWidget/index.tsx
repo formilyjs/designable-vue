@@ -1,7 +1,12 @@
 // import React, { Fragment, useRef } from 'react'
 import { FragmentComponent as Fragment } from '@formily/vue'
 import { observer } from '@formily/reactive-vue'
-import { ElButton as Button, ElInput as Input, ElInputNumber as InputNumber, ElButtonGroup as ButtonGroup } from 'element-plus'
+import {
+  ElButton as Button,
+  ElInput as Input,
+  ElInputNumber as InputNumber,
+  ElButtonGroup as ButtonGroup,
+} from 'element-plus'
 import { CursorType, ScreenType } from '@designable/core'
 import {
   useCursor,
@@ -53,19 +58,22 @@ const DesignerToolsWidgetComponent = defineComponent({
         return (
           <>
             <InputNumber
-              size='small'
+              size="small"
               controls={false}
               modelValue={screenRef.value.width}
               style={{ width: '110px', textAlign: 'center' }}
               {...{
-                "onUpdate:modelValue": (value) => {
+                'onUpdate:modelValue': (value) => {
                   sizeRef.width = value
                 },
                 onKeyup: (e: KeyboardEvent) => {
                   if (e.key === 'Enter') {
-                    screenRef.value.setSize(sizeRef.width, screenRef.value.height)
+                    screenRef.value.setSize(
+                      sizeRef.width,
+                      screenRef.value.height
+                    )
                   }
-                }
+                },
               }}
             />
             <IconWidget
@@ -78,14 +86,17 @@ const DesignerToolsWidgetComponent = defineComponent({
                 size: 'small',
                 controls: false,
                 modelValue: screenRef.value.height,
-                "onUpdate:modelValue": (value) => {
+                'onUpdate:modelValue': (value) => {
                   sizeRef.height = value
                 },
                 onKeyup: (e: KeyboardEvent) => {
                   if (e.key === 'Enter') {
-                    screenRef.value.setSize(screenRef.value.width, sizeRef.height)
+                    screenRef.value.setSize(
+                      screenRef.value.width,
+                      sizeRef.height
+                    )
                   }
-                }
+                },
               }}
               style={{
                 width: '110px',
@@ -95,16 +106,16 @@ const DesignerToolsWidgetComponent = defineComponent({
             />
             {(screenRef.value.width !== '100%' ||
               screenRef.value.height !== '100%') && (
-                <Button
-                  {...{ size: 'small' }}
-                  style={{ marginRight: '20px' }}
-                  onClick={() => {
-                    screenRef.value.resetSize()
-                  }}
-                >
-                  <IconWidget infer="Recover" />
-                </Button>
-              )}
+              <Button
+                {...{ size: 'small' }}
+                style={{ marginRight: '20px' }}
+                onClick={() => {
+                  screenRef.value.resetSize()
+                }}
+              >
+                <IconWidget infer="Recover" />
+              </Button>
+            )}
           </>
         )
       }

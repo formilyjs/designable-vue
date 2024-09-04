@@ -5,7 +5,7 @@ import {
   DragStartEvent,
   DragMoveEvent,
   DragStopEvent,
-  ScreenStatus
+  ScreenStatus,
 } from '@designable/core'
 import {
   calcSpeedFactor,
@@ -147,26 +147,30 @@ const useResizeEffect = (
  * InputNumber ElmentUI 显示不了100%
  * @param content
  */
-function useScreenModifier(screenRef: Ref<Engine['screen']>, contentRef: Ref<HTMLDivElement | undefined>) {
+function useScreenModifier(
+  screenRef: Ref<Engine['screen']>,
+  contentRef: Ref<HTMLDivElement | undefined>
+) {
   useEffect(() => {
     const screen = screenRef.value
     const content = contentRef.value
     if (isStr(screen.height) && isStr(screen.width)) {
-      Promise.resolve().then(() => screen.setSize(content?.clientWidth, content?.clientHeight))
+      Promise.resolve().then(() =>
+        screen.setSize(content?.clientWidth, content?.clientHeight)
+      )
     }
   }, [contentRef, () => screenRef.value.height])
   // watch(contentRef, })
 }
 
 const ResponsiveSimulatorComponent = defineComponent({
-  name: "ResponsiveSimulatorComponent",
+  name: 'ResponsiveSimulatorComponent',
   props: {},
   setup(props, { attrs, slots }) {
     const contentRef = ref<HTMLDivElement>()
     const containerRef = ref<HTMLDivElement>()
     const prefixRef = usePrefix('responsive-simulator')
     const screenRef = useScreen()
-
 
     useDesigner((engine) => {
       useResizeEffect(containerRef, contentRef, engine)
@@ -214,7 +218,7 @@ const ResponsiveSimulatorComponent = defineComponent({
               }}
             >
               {slots.default?.()}
-              <ResizeHandle type={ResizeHandleType.Resize} >
+              <ResizeHandle type={ResizeHandleType.Resize}>
                 <IconWidget
                   infer="DragMove"
                   style={{ pointerEvents: 'none' }}

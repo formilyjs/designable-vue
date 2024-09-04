@@ -57,131 +57,125 @@ export const FontStyleSetter = observer(
         const prefix = prefixRef.value
         const field = unref(fieldRef)
         return (
-          <FoldItem label={field.title} class={cls(prefix)} v-slots={{
-            base: () => {
-              return (
-                <Field
-                  name="fontFamily"
-                  basePath={field.address.parent()}
-                  component={[
-                    Select,
-                    { style: { width: '100%' }, placeholder: 'Helvetica Neue' },
-                  ]}
-                  dataSource={FontFamilyOptions}
-                />
-              )
-            },
-            extra: () => {
-              return (
-                <InputItems>
-                  <InputItems.Item icon="FontWeight" width="50%">
-                    <Field
-                      name="fontWeight"
-                      basePath={field.address.parent()}
-                      component={[
-                        InputNumber,
-                        { placeholder: '400' },
-                      ]}
-                    />
-                  </InputItems.Item>
-                  <InputItems.Item icon="FontStyle" width="50%">
-                    <Field
-                      name="fontStyle"
-                      basePath={field.address.parent()}
-                      dataSource={[
-                        {
-                          label: <IconWidget infer="NormalFontStyle" />,
-                          value: 'normal',
-                        },
-                        {
-                          label: <IconWidget infer="ItalicFontStyle" />,
-                          value: 'italic',
-                        },
-                      ]}
-                      component={[
-                        Radio.Group,
-                        { optionType: 'button' },
-                      ]}
-                    />
-                  </InputItems.Item>
-                  <InputItems.Item icon="FontColor" width="100%">
-                    <Field
-                      name="color"
-                      basePath={field.address.parent()}
-                      component={[ColorInput]}
-                    />
-                  </InputItems.Item>
-                  <InputItems.Item icon="FontSize" width="50%">
-                    <Field
-                      name="fontSize"
-                      basePath={field.address.parent()}
-                      component={[SizeInput, { exclude: ['auto'] }]}
-                    />
-                  </InputItems.Item>
-                  <InputItems.Item icon="LineHeight" width="50%">
-                    <Field
-                      name="lineHeight"
-                      basePath={field.address.parent()}
-                      component={[SizeInput, { exclude: ['auto'] }]}
-                    />
-                  </InputItems.Item>
-                  <InputItems.Item icon="TextAlign">
-                    <Field
-                      name="textAlign"
-                      basePath={field.address.parent()}
-                      dataSource={[
-                        {
-                          label: <IconWidget infer="TextAlignLeft" />,
-                          value: 'left',
-                        },
-                        {
-                          label: <IconWidget infer="TextAlignCenter" />,
-                          value: 'center',
-                        },
-                        {
-                          label: <IconWidget infer="TextAlignRight" />,
-                          value: 'right',
-                        },
-                        {
-                          label: <IconWidget infer="TextAlignJustify" />,
-                          value: 'justify',
-                        },
-                      ]}
-                      component={[
-                        Radio.Group,
-                        { optionType: 'button' },
-                      ]}
-                    />
-                  </InputItems.Item>
-                  <InputItems.Item icon="TextDecoration">
-                    <Field
-                      name="textDecoration"
-                      basePath={field.address.parent()}
-                      dataSource={[
-                        {
-                          label: '--',
-                          value: 'none',
-                        },
-                        {
-                          label: <IconWidget infer="TextUnderline" />,
-                          value: 'underline',
-                        },
-                        {
-                          label: <IconWidget infer="TextLineThrough" />,
-                          value: 'line-through',
-                        },
-                      ]}
-                      component={[
-                        Radio.Group,
-                        { optionType: 'button' },
-                      ]}
-                    />
-                  </InputItems.Item>
-                </InputItems>
-              )
-            }
-          }}>
-          </FoldItem>
+          <FoldItem
+            label={field.title}
+            class={cls(prefix)}
+            v-slots={{
+              base: () => {
+                return (
+                  <Field
+                    name="fontFamily"
+                    basePath={field.address.parent()}
+                    component={[
+                      Select,
+                      {
+                        style: { width: '100%' },
+                        placeholder: 'Helvetica Neue',
+                      },
+                    ]}
+                    dataSource={FontFamilyOptions}
+                  />
+                )
+              },
+              extra: () => {
+                return (
+                  <InputItems>
+                    <InputItems.Item icon="FontWeight" width="50%">
+                      <Field
+                        name="fontWeight"
+                        basePath={field.address.parent()}
+                        component={[InputNumber, { placeholder: '400' }]}
+                      />
+                    </InputItems.Item>
+                    <InputItems.Item icon="FontStyle" width="50%">
+                      <Field
+                        name="fontStyle"
+                        basePath={field.address.parent()}
+                        dataSource={[
+                          {
+                            label: <IconWidget infer="NormalFontStyle" />,
+                            value: 'normal',
+                          },
+                          {
+                            label: <IconWidget infer="ItalicFontStyle" />,
+                            value: 'italic',
+                          },
+                        ]}
+                        component={[Radio.Group, { optionType: 'button' }]}
+                      />
+                    </InputItems.Item>
+                    <InputItems.Item icon="FontColor" width="100%">
+                      <Field
+                        name="color"
+                        basePath={field.address.parent()}
+                        component={[ColorInput]}
+                      />
+                    </InputItems.Item>
+                    <InputItems.Item icon="FontSize" width="50%">
+                      <Field
+                        name="fontSize"
+                        basePath={field.address.parent()}
+                        component={[SizeInput, { exclude: ['auto'] }]}
+                      />
+                    </InputItems.Item>
+                    <InputItems.Item icon="LineHeight" width="50%">
+                      <Field
+                        name="lineHeight"
+                        basePath={field.address.parent()}
+                        component={[SizeInput, { exclude: ['auto'] }]}
+                      />
+                    </InputItems.Item>
+                    <InputItems.Item icon="TextAlign">
+                      <Field
+                        name="textAlign"
+                        basePath={field.address.parent()}
+                        dataSource={[
+                          {
+                            label: <IconWidget infer="TextAlignLeft" />,
+                            value: 'left',
+                          },
+                          {
+                            label: <IconWidget infer="TextAlignCenter" />,
+                            value: 'center',
+                          },
+                          {
+                            label: <IconWidget infer="TextAlignRight" />,
+                            value: 'right',
+                          },
+                          {
+                            label: <IconWidget infer="TextAlignJustify" />,
+                            value: 'justify',
+                          },
+                        ]}
+                        component={[Radio.Group, { optionType: 'button' }]}
+                      />
+                    </InputItems.Item>
+                    <InputItems.Item icon="TextDecoration">
+                      <Field
+                        name="textDecoration"
+                        basePath={field.address.parent()}
+                        dataSource={[
+                          {
+                            label: '--',
+                            value: 'none',
+                          },
+                          {
+                            label: <IconWidget infer="TextUnderline" />,
+                            value: 'underline',
+                          },
+                          {
+                            label: <IconWidget infer="TextLineThrough" />,
+                            value: 'line-through',
+                          },
+                        ]}
+                        component={[Radio.Group, { optionType: 'button' }]}
+                      />
+                    </InputItems.Item>
+                  </InputItems>
+                )
+              },
+            }}
+          ></FoldItem>
         )
       }
     },
