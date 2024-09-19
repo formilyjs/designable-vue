@@ -158,6 +158,20 @@ const FieldComponent = observer(
           designerRef.value.props.nodeIdAttrName!,
           nodeRef.value.id
         )
+
+        if (fieldProps.decorator?.[1]) {
+          fieldProps.decorator[1] = new Proxy(fieldProps.decorator[1], {
+            deleteProperty(target, key) {
+              if (key === 'style') {
+              } else {
+                delete target[key]
+              }
+
+              return true
+            },
+          })
+        }
+
         if (props.type === 'object') {
           return (
             <Container>
