@@ -124,13 +124,13 @@ export const ComponentTreeWidgetComponent = observer(
 
       return () => {
         const dataId: Record<string, string> = {}
-        if (
-          designerRef.value &&
-          treeRef.value &&
-          designerRef.value?.props?.nodeIdAttrName
-        ) {
-          dataId[designerRef.value.props.nodeIdAttrName!] = treeRef.value.id
-        }
+        // if (
+        //   designerRef.value &&
+        //   treeRef.value &&
+        //   designerRef.value?.props?.nodeIdAttrName
+        // ) {
+        //   dataId[designerRef.value.props.nodeIdAttrName!] = treeRef.value.id
+        // }
         return (
           <div class={cls(prefixRef.value)} {...dataId}>
             <TreeNodeWidget {...{ node: treeRef.value }} />
