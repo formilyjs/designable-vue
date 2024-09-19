@@ -1,5 +1,5 @@
 import { CursorStatus, ScreenStatus, TreeNode } from '@designable/core'
-import { getCurrentInstance, shallowRef, Ref } from 'vue'
+import { getCurrentInstance, shallowRef, Ref, nextTick } from 'vue'
 
 import { useDesigner } from './useDesigner'
 import { useEffect } from '../shared/useEffect'
@@ -26,6 +26,12 @@ export const useValidNodeOffsetRect = (nodeRef: Ref<TreeNode>) => {
   const rectRef = shallowRef<Ref<DOMRect>>(
     viewportRef.value.getValidNodeOffsetRect(nodeRef.value) as any
   )
+
+  nextTick(() => {
+    rectRef.value = viewportRef.value.getValidNodeOffsetRect(
+      nodeRef.value
+    ) as any
+  })
 
   const computeRef = shallowRef()
   useEffect(() => {
