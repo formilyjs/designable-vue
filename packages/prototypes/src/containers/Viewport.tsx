@@ -1,4 +1,4 @@
-import { usePrefix, useViewport } from '../hooks'
+import { usePrefix, useViewport, useTree } from '../hooks'
 import { AuxToolWidget, EmptyWidget } from '../widgets'
 import { Viewport as ViewportType } from '@designable/core'
 import { requestIdle } from '@designable/shared'
@@ -10,8 +10,10 @@ import {
   ref,
   computed,
   getCurrentInstance,
+  nextTick,
 } from 'vue-demi'
 import { useStyle } from '../shared'
+import { useSelection } from '../hooks'
 
 export const Viewport = defineComponent({
   name: 'DnViewport',
@@ -23,6 +25,8 @@ export const Viewport = defineComponent({
     const loaded = ref(false)
     const prefixRef = usePrefix('viewport')
     const viewportHookRef = useViewport()
+    const selectionRef = useSelection()
+    const treeRef = useTree()
 
     const refInstance = ref<HTMLElement>()
     // 该组件内部缓存的ref
@@ -55,6 +59,15 @@ export const Viewport = defineComponent({
         })
       }
       viewportRef.value = viewportHookRef.value
+    })
+
+    onMounted(() => {
+      nextTick(() => {
+        selectionRef.value.clear()
+        nextTick(() => {
+          selectionRef.value.select(treeRef.value.id)
+        })
+      })
     })
 
     onBeforeUnmount(() => {
